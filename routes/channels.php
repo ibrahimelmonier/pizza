@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('PizzaTracker.{id}', function ($user, $id) {
+    return (int) $user->id === (int) \App\Order::find($id)->user_id;
 });
